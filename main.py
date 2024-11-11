@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common import options
+import time
 
 def get_driver():
   #Set options to make browsing easier
@@ -17,8 +18,9 @@ def get_driver():
 
 def main():
   driver = get_driver()
-  #Lấy xpath của các thẻ input
-  element = driver.find_element(by="id", value="id_username")
-  return element.text
+  #Lấy xpath của các thẻ input và điền thông tin
+  driver.find_element(by="id", value="id_username").send_keys("automated")
+  #Điền tt xong giữ 2s
+  time.sleep(2)
 
 print(main())
